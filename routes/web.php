@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/services', function () {
     return view('components.layouts.service');
 })->name('services');
+
+Route::get('/about', function () {
+    return view('components.layouts.about');
+})->name('about');
