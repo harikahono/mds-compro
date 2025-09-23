@@ -11,7 +11,7 @@
             <nav class="main-navigation" role="navigation">
                 <ul>
                     <li><a href="#work" class="nav-link active">Work</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="{{ route('services') }}" class="nav-link">Services</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#blog" class="nav-link">Blog</a></li>
                 </ul>
