@@ -44,7 +44,8 @@
 
 .awards .grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+  justify-content: center;
   gap: 18px;
   margin-top: 10px;
 }
@@ -53,10 +54,18 @@
   border-radius: 16px;
   padding: 24px;
   min-height: 120px;
+  width: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 14px 28px rgba(117,181,1,.22);
+}
+.awards .brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 }
 .awards .logo {
   color: #fff;
@@ -66,8 +75,10 @@
   opacity: .95;
   text-transform: lowercase;
 }
-.awards .card img {
-  width: 120px; height: auto; object-fit: contain; filter: brightness(0) invert(1);
+.awards .brand-img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
 }
 
 /* CTA */
@@ -95,13 +106,13 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .awards .grid { grid-template-columns: repeat(3, 1fr); }
+  .awards .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 200px)); }
 }
 @media (max-width: 560px) {
   .awards { padding: 56px 0 48px; }
   .awards .icons { margin-bottom: 6px; }
   .awards .title { margin-top: -36px; }
-  .awards .grid { grid-template-columns: repeat(2, 1fr); }
+  .awards .grid { grid-template-columns: repeat(auto-fit, minmax(160px, 160px)); }
 }
 </style>
 
@@ -131,23 +142,22 @@
 
     <?php
       $items = $awards ?? [
-        ['label' => 'awwwards.'],
-        ['label' => 'digital DNA'],
-        ['label' => 'the LLEMEDIAAW'],
-        ['label' => 'eComm Awards'],
-        ['label' => 'WA'],
-        ['label' => 'DANI Awards'],
+        ['label' => 'BCA' , 'img' => 'images/bca_logo.png'],
+        ['label' => 'ESDM' , 'img' => 'images/esdm_logo.png'],
+        ['label' => 'Kampus ITI' , 'img' => 'images/iti_logo.png'],
+        ['label' => 'Masjid Istiqlal' , 'img' => 'images/masjid_istiqlal_logo.png'],
+        ['label' => 'Pertamina' , 'img' => 'images/pertamina_logo.png'],
       ];
     ?>
 
     <div class="grid">
       <?php foreach ($items as $it): ?>
-        <div class="card">
-          <?php if (!empty($it['img'])): ?>
-            <img src="<?= $it['img'] ?>" alt="<?= $it['label'] ?? 'Award' ?>">
-          <?php else: ?>
-            <span class="logo"><?= $it['label'] ?? 'Award' ?></span>
-          <?php endif; ?>
+        <div class="card" aria-label="Brand logo">
+          <div class="brand">
+            <?php if (!empty($it['img'])): ?>
+              <img class="brand-img" src="<?= asset($it['img']) ?>" alt="">
+            <?php endif; ?>
+          </div>
         </div>
       <?php endforeach; ?>
     </div>

@@ -110,13 +110,13 @@
 
       <div class="media" aria-hidden="true">
         <div class="img-1">
-          <img src="<?= $img1 ?? asset('images/2_1087.png') ?>" alt="">
+          <img src="<?= $img1 ?? asset('images/4d5f67de931daf0e3c9bca026aecdbec7565583f.png') ?>" alt="">
         </div>
         <div class="img-2">
-          <img src="<?= $img2 ?? asset('images/2_1097.png') ?>" alt="">
+          <img src="<?= $img2 ?? asset('images/6a363afc9995605a45ff951516de39b174892d53.png') ?>" alt="">
         </div>
         <div class="img-3">
-          <img src="<?= $img3 ?? asset('images/2_1107.png') ?>" alt="">
+          <img src="<?= $img3 ?? asset('images/95d8abc3c20ea611762e4c3b7fb3ff8817884abd.png') ?>" alt="">
         </div>
       </div>
     </div>

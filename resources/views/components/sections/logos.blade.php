@@ -12,6 +12,26 @@
     position: relative;
 }
 
+/* Soft edge fades for cleaner look */
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    pointer-events: none;
+    z-index: 1;
+}
+.marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+.marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(270deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
 .marquee-track {
     display: flex;
     width: fit-content;
@@ -32,6 +52,15 @@
     max-width: 100%;
     max-height: 60px;
     object-fit: contain;
+    filter: grayscale(100%) saturate(0%) opacity(.9);
+    transition: transform .25s ease, filter .25s ease, opacity .25s ease;
+}
+
+/* Subtle hover reveal */
+.logo-item:hover img {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.02);
 }
 
 @keyframes marquee {
@@ -46,17 +75,11 @@
         <div class="marquee-track">
             @php
                 $logos = $logosData ?? [
-                    ['src' => 'images/2_28.png', 'alt' => 'Sse arena logo'],
-                    ['src' => 'images/2_47.png', 'alt' => 'W5 logo'],
-                    ['src' => 'images/bf1ce1cfea78ee3ff6d830e1c35eb484fc947fcb.png', 'alt' => 'Van morrison logo'],
-                    ['src' => 'images/2_54.png', 'alt' => 'Grand opera house logo'],
-                    ['src' => 'images/2_86.png', 'alt' => 'Miller theatre logo'],
-                    ['src' => 'images/2_93.png', 'alt' => 'Story museum logo'],
-                    ['src' => 'images/2_106.png', 'alt' => 'Lyric theatre logo'],
-                    ['src' => 'images/2_118.png', 'alt' => 'Firmus Energy Logo'],
-                    ['src' => 'images/e9804880a131061cd81f4c2b50edd23ad2f11a61.png', 'alt' => 'Game of thrones tour logo'],
-                    ['src' => 'images/2_143.png', 'alt' => 'Arts Council Northern Ireland Logo'],
-                    ['src' => 'images/2_175.png', 'alt' => 'Belfast Giants Logo']
+                    ['src' => 'images/bca_logo.png', 'alt' => 'BCA'],
+                    ['src' => 'images/esdm_logo.png', 'alt' => 'esdm_logo'],
+                    ['src' => 'images/iti_logo.png', 'alt' => 'iti_logo'],
+                    ['src' => 'images/masjid_istiqlal_logo.png', 'alt' => 'masjid_istiqlal_logo'],
+                    ['src' => 'images/pertamina_logo.png', 'alt' => 'pertamina_logo'],
                 ];
             @endphp
             

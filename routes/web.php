@@ -13,3 +13,7 @@ Route::get('/services', function () {
 Route::get('/about', function () {
     return view('components.layouts.about');
 })->name('about');
+
+Route::get('/blog', function () {
+    return view('components.layouts.blog');
+})->name('blog');
