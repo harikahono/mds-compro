@@ -4,16 +4,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('home'); // Ubah nama 'landing' menjadi 'home' untuk root
+
+Route::get('/landing', function () {
+    return view('landing');
+})->name('landing'); // Tambah route untuk /landing
 
 Route::get('/services', function () {
-    return view('components.layouts.service');
+    return view('service');
 })->name('services');
 
 Route::get('/about', function () {
-    return view('components.layouts.about');
+    return view('about');
 })->name('about');
 
 Route::get('/blog', function () {
-    return view('components.layouts.blog');
+    return view('blog');
 })->name('blog');

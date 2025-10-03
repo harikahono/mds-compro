@@ -5,17 +5,16 @@
 
     <main>
         @include('components.sections.about-detail')
-        @include('components.sections.ngentot')
         @include('components.sections.about-year')
         @include('components.sections.about-quotes')
         @include('components.sections.about-diffrent')
         @include('components.sections.about-runtext')
-        @include('components.sections.ngentot')
+        @include('components.sections.full')
         @include('components.sections.about-join')
         @include('components.sections.about-consument')
         @include('components.sections.about-partner')
         @include('components.sections.about-commenttitle')
-        @include('components.sections.testimonials')
+        @include('components.sections.landing-testimonials')
     
     </main>
 
