@@ -48,6 +48,7 @@
 </header>
 
 @push('styles')
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 <style>
     :root {
         --color-primary: theme('colors.brand-orange', '#ef694c');
@@ -234,6 +235,19 @@ document.addEventListener('DOMContentLoaded', function () {
     
     window.addEventListener('scroll', activateLinkOnScroll);
     activateLinkOnScroll();
+});
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 60,
+        });
+    }
 });
 </script>
 @endpush
