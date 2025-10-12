@@ -37,13 +37,6 @@ class PortofolioResource extends Resource
                     ->label('Deskripsi')
                     ->required(),
 
-                Forms\Components\FileUpload::make('image')
-                    ->label('Gambar')
-                    ->image()
-                    ->directory('portofolios/images')
-                    ->imageResizeMode('cover')
-                    ->imagePreviewHeight('150'),
-
                 Forms\Components\TextInput::make('url')
                     ->label('URL')
                     ->url()
@@ -55,7 +48,6 @@ class PortofolioResource extends Resource
     {
         return $table
             ->columns([
-                 Tables\Columns\ImageColumn::make('image')->label('Gambar')->circular(),
                 Tables\Columns\TextColumn::make('name')->label('Nama'),
                 Tables\Columns\TextColumn::make('client.name')->label('Client'),
                 Tables\Columns\TextColumn::make('url')->label('URL'),
@@ -75,11 +67,11 @@ class PortofolioResource extends Resource
     }
 
     public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+{
+    return [
+        \App\Filament\Admin\Resources\PortofolioResource\RelationManagers\ImagePortofoliosRelationManager::class,
+    ];
+}
 
     public static function getPages(): array
     {

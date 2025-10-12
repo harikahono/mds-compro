@@ -12,9 +12,16 @@ class Portofolio extends Model
         'client_id',
         'name',
         'description',
-        'image',
         'url',
     ];
+
+    /**
+     * Relasi: Portofolio punya banyak gambar
+     */
+    public function images()
+    {
+        return $this->hasMany(ImagePortofolio::class, 'portofolio_id');
+    }
 
     /**
      * Relasi: Portofolio dimiliki oleh satu Client
