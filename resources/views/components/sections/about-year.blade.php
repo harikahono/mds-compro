@@ -25,6 +25,7 @@
   border-radius: 8px;
   box-shadow: 0 10px 24px rgba(0,0,0,.12);
   white-space: nowrap;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .yexp .hgroup {
   display: inline-block;
@@ -57,9 +58,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 .yexp .icon-bubble svg {
   width: 26px; height: 26px;
+}
+
+.yexp .icon-bubble:hover {
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+}
+
+.yexp .badge:hover {
+  transform: rotate(8deg) translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 28px rgba(0,0,0,.16);
 }
 
 .yexp .sub {
@@ -71,17 +83,17 @@
 }
 @media (max-width: 768px) {
   .yexp { padding: 64px 0 44px; }
-  .yexp .badge { right: 10px; top: 4px; }
+  .yexp .badge { right: 10px; top: -38px; }
 }
 </style>
 
-<section class="yexp">
+<section class="yexp" data-aos="fade-up">
   <div class="container">
-    <div class="badge"><?= $badge ?? '22+ YEARS EXPERIENCE' ?></div>
+    <div class="badge" data-aos="fade-down" data-aos-delay="100"><?= $badge ?? '22+ YEARS EXPERIENCE' ?></div>
 
-    <div class="hgroup" aria-label="22 years and still killin it">
-      <h2 class="line"><?= $titleTop ?? '22 YEARS AND' ?></h2>
-      <h2 class="line line--bottom">
+    <div class="hgroup" aria-label="22 years and still killin it" data-aos="zoom-in-up" data-aos-delay="150">
+      <h2 class="line" data-aos="fade-up" data-aos-delay="150"><?= $titleTop ?? '22 YEARS AND' ?></h2>
+      <h2 class="line line--bottom" data-aos="fade-up" data-aos-delay="250">
         <span class="icon-bubble" aria-hidden="true">
           <!-- peace hand -->
           <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -94,7 +106,7 @@
       </h2>
     </div>
 
-    <p class="sub">
+    <p class="sub" data-aos="fade-up" data-aos-delay="300">
       <?= $subtitle ?? "Since 2003, we’ve partnered with amazing clients to create impactful, engaging digital experiences that deliver real results." ?>
     </p>
   </div>
